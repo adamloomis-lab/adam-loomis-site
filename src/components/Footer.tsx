@@ -26,9 +26,9 @@ export default function Footer() {
                 src={ASSETS.almMonogramDark}
                 alt=""
                 aria-hidden="true"
-                className="h-24 w-24 object-contain"
+                className="h-32 w-32 lg:h-40 lg:w-40 object-contain"
               />
-              <img src={ASSETS.logo} alt="Adam Loomis" className="h-9 w-auto" />
+              <img src={ASSETS.logo} alt="Adam Loomis" className="h-9 lg:h-11 w-auto" />
             </div>
             <p className="text-[#6E6E6E] text-[15px] leading-relaxed max-w-sm">
               Marketing strategist, speaker, and entrepreneur helping businesses

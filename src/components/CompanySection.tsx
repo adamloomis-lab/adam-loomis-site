@@ -32,7 +32,7 @@ export default function CompanySection() {
                 <img
                   src={ASSETS.almMonogramDark}
                   alt="Adam Loomis Marketing"
-                  className="w-full h-auto max-w-[560px]"
+                  className="w-full h-auto"
                 />
               </div>
             </div>
