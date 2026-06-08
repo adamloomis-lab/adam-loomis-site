@@ -258,7 +258,7 @@ export default function SimplyVisible() {
                 Trusted, and Chosen in the AI Era
               </span>{" "}
               is the book that changes that. Written by Adam Loomis, founder of
-              Adam Loomis Marketing and Visible Local, this is a practical,
+              Adam Loomis Marketing, this is a practical,
               no-fluff guide built specifically for local business owners
               navigating today's digital landscape. Whether you are brand new to
               online visibility or you have been at it for years and want to firm
@@ -365,9 +365,7 @@ export default function SimplyVisible() {
                 Adam Loomis has spent years helping local and small businesses
                 across Northeast Ohio get found online without spending a dollar
                 on ads. His conversational marketing methodology has driven
-                organic reach across hundreds of client accounts. Visible Local
-                is his national local marketing brand built to bring that same
-                system to service-based small businesses everywhere. Simply
+                organic reach across hundreds of client accounts. Simply
                 Visible is the book he wished existed when he started.
               </p>
             </div>

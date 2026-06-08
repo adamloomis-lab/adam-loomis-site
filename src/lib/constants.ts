@@ -26,7 +26,6 @@ export const NAV_LINKS = [
   { label: "Speaking", href: "#speaking" },
   { label: "Podcast", href: "#podcast" },
   { label: "Book", href: "#book" },
-  { label: "Visible Local", href: "#visible-local" },
   { label: "Contact", href: "#contact" },
 ] as const;
 

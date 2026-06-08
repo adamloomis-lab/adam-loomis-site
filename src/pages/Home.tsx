@@ -12,7 +12,6 @@ import PodcastSection from "@/components/PodcastSection";
 import BookSection from "@/components/BookSection";
 import AboutSection from "@/components/AboutSection";
 import CompanySection from "@/components/CompanySection";
-import VisibleLocalSection from "@/components/VisibleLocalSection";
 import SimplyVisibleSection from "@/components/SimplyVisibleSection";
 import StrategySection from "@/components/StrategySection";
 import LeadMagnetSection from "@/components/LeadMagnetSection";
@@ -26,7 +25,6 @@ export default function Home() {
       <HeroSection />
       <StatsSection />
       <SimplyVisibleSection />
-      <VisibleLocalSection />
       <ExpertiseSection />
       <SpeakingSection />
       <PodcastSection />
