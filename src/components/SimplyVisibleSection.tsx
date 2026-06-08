@@ -8,6 +8,9 @@ import { ASSETS } from "@/lib/constants";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { BookOpen, ArrowRight } from "lucide-react";
 
+const AMAZON_URL =
+  "https://www.amazon.com/Simply-Visible-Adam-Loomis-ebook/dp/B0H3FLDD55";
+
 export default function SimplyVisibleSection() {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
@@ -27,7 +30,12 @@ export default function SimplyVisibleSection() {
               transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s",
             }}
           >
-            <Link href="/simply-visible">
+            <a
+              href={AMAZON_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Buy Simply Visible on Amazon"
+            >
               <div className="relative max-w-sm w-full cursor-pointer">
                 {/* Glow behind cover */}
                 <div
@@ -46,7 +54,7 @@ export default function SimplyVisibleSection() {
                   }}
                 />
               </div>
-            </Link>
+            </a>
           </div>
 
           {/* Text + CTA — Right Column */}
@@ -62,7 +70,7 @@ export default function SimplyVisibleSection() {
             <div className="flex items-center gap-3 mb-6">
               <BookOpen size={18} className="text-[#D4AF37]" />
               <p className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase">
-                Coming Soon
+                Available Now
               </p>
             </div>
 
@@ -73,7 +81,7 @@ export default function SimplyVisibleSection() {
 
             {/* Subheadline */}
             <p className="text-[#D4AF37] text-xl font-semibold mb-6">
-              Simply Visible is coming soon.
+              My new book is now available on Amazon.
             </p>
 
             {/* Body */}
@@ -91,17 +99,27 @@ export default function SimplyVisibleSection() {
               what to do next.
             </p>
 
-            {/* CTA Link to Landing Page */}
-            <Link
-              href="/simply-visible"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold bg-[#D4AF37] text-black rounded-lg transition-all duration-300 hover:bg-[#F5D76E] hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:-translate-y-0.5"
-            >
-              Notify me when it's available
-              <ArrowRight
-                size={18}
-                className="transition-transform group-hover:translate-x-1"
-              />
-            </Link>
+            {/* CTAs: Buy on Amazon + Learn More */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href={AMAZON_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold bg-[#D4AF37] text-black rounded-lg transition-all duration-300 hover:bg-[#F5D76E] hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:-translate-y-0.5"
+              >
+                Buy on Amazon
+                <ArrowRight
+                  size={18}
+                  className="transition-transform group-hover:translate-x-1"
+                />
+              </a>
+              <Link
+                href="/simply-visible"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white border border-white/15 rounded-lg transition-all duration-300 hover:border-[#D4AF37]/40 hover:text-[#D4AF37]"
+              >
+                Learn more about the book
+              </Link>
+            </div>
           </div>
         </div>
       </div>
