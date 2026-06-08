@@ -12,6 +12,7 @@ import PodcastSection from "@/components/PodcastSection";
 import BookSection from "@/components/BookSection";
 import AboutSection from "@/components/AboutSection";
 import CompanySection from "@/components/CompanySection";
+import HisCompaniesSection from "@/components/HisCompaniesSection";
 import SimplyVisibleSection from "@/components/SimplyVisibleSection";
 import StrategySection from "@/components/StrategySection";
 import LeadMagnetSection from "@/components/LeadMagnetSection";
@@ -31,6 +32,7 @@ export default function Home() {
       <BookSection />
       <AboutSection />
       <CompanySection />
+      <HisCompaniesSection />
       <StrategySection />
       <LeadMagnetSection />
       <ContactSection />
