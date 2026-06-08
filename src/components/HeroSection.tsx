@@ -115,7 +115,7 @@ export default function HeroSection() {
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-[#0A0A0A]">
             <a href="#book" className="hover:underline underline-offset-4">The new book &mdash; Simply Visible</a>
             <a href="#podcast" className="hover:underline underline-offset-4">Mondays with Adam podcast</a>
-            <a href="#speaking" className="hover:underline underline-offset-4">2026 speaking schedule</a>
+            <a href="#speaking" className="hover:underline underline-offset-4">Book Adam to speak</a>
           </div>
         </div>
       </div>

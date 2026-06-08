@@ -27,7 +27,6 @@ export default function SpeakingSection() {
         <div className="flex items-center gap-4 mb-16">
           <span className="eyebrow">Speaking</span>
           <span className="h-px flex-1 bg-[#E5E5E5]" />
-          <span className="eyebrow-muted">2026 Schedule Open</span>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">

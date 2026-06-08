@@ -9,7 +9,6 @@ import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function BookSection() {
   const { ref, isVisible } = useScrollAnimation(0.1);
-  const { ref: videoRef, isVisible: videoVisible } = useScrollAnimation(0.15);
   const [activeEndorsement, setActiveEndorsement] = useState(0);
 
   useEffect(() => {
@@ -164,35 +163,6 @@ export default function BookSection() {
           </div>
         </div>
 
-        {/* Video */}
-        <div
-          ref={videoRef}
-          className="mt-20 lg:mt-28"
-          style={{
-            opacity: videoVisible ? 1 : 0,
-            transform: videoVisible ? "translateY(0)" : "translateY(24px)",
-            transition: "all 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-          }}
-        >
-          <div className="flex items-center gap-4 mb-8">
-            <span className="eyebrow text-white">Watch the Interview</span>
-            <span className="h-px flex-1 bg-white/15" />
-          </div>
-          <div className="max-w-5xl">
-            <div
-              className="relative rounded-md overflow-hidden border border-white/15"
-              style={{ paddingBottom: "56.25%" }}
-            >
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/etR40KhPsV8?start=321&rel=0&modestbranding=1"
-                title="Conversational Marketing with Adam Loomis"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

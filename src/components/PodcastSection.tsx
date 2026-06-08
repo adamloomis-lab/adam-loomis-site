@@ -36,34 +36,6 @@ export default function PodcastSection() {
           </p>
         </div>
 
-        {/* Featured YouTube Episode */}
-        <div
-          className="mb-12"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(24px)",
-            transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 100ms",
-          }}
-        >
-          <div className="flex items-center justify-between mb-3">
-            <p className="eyebrow-muted">Featured Episode</p>
-            <p className="eyebrow-muted">Episode 78</p>
-          </div>
-          <div className="rounded-md overflow-hidden border border-[#E5E5E5] bg-white">
-            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/nb9i55siZaY"
-                title="Mondays with Adam - Episode 78"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-
         {/* Artwork + Apple embed + listen-on row */}
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           {/* Podcast artwork tile */}
