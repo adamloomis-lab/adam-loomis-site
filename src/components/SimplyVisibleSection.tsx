@@ -1,12 +1,11 @@
 /*
- * Simply Visible Book Announcement Section (Homepage)
- * Two-column layout: book cover left, text + CTA link to landing page right
- * Matches existing "Midnight Forge" design language
+ * Simply Visible Book Section — Editorial book feature
+ * Design: "Editorial Authority" — paper background, book cover hero, restrained
  */
 import { Link } from "wouter";
 import { ASSETS } from "@/lib/constants";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { BookOpen, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const AMAZON_URL =
   "https://www.amazon.com/Simply-Visible-Adam-Loomis-ebook/dp/B0H3FLDD55";
@@ -15,19 +14,23 @@ export default function SimplyVisibleSection() {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
   return (
-    <section className="relative py-24 lg:py-32 bg-black overflow-hidden">
-      {/* Subtle top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent" />
-
+    <section className="relative py-24 lg:py-32 bg-[#FAFAFA] border-y border-[#E5E5E5]">
       <div ref={ref} className="container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Book Cover — Left Column */}
+        {/* Section masthead */}
+        <div className="flex items-center gap-4 mb-12">
+          <span className="eyebrow text-[#0A0A0A]">The Book</span>
+          <span className="h-px flex-1 bg-[#E5E5E5]" />
+          <span className="eyebrow-muted">Available Now</span>
+        </div>
+
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Book Cover */}
           <div
-            className="flex justify-center lg:justify-center order-1 lg:order-1"
+            className="lg:col-span-5"
             style={{
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "scale(1)" : "scale(0.92)",
-              transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s",
+              transform: isVisible ? "scale(1)" : "scale(0.94)",
+              transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 100ms",
             }}
           >
             <a
@@ -35,60 +38,43 @@ export default function SimplyVisibleSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Buy Simply Visible on Amazon"
+              className="block"
             >
-              <div className="relative max-w-sm w-full cursor-pointer">
-                {/* Glow behind cover */}
-                <div
-                  className="absolute inset-0 rounded-2xl opacity-20"
-                  style={{
-                    background: "radial-gradient(circle at 50% 40%, rgba(212,175,55,0.3), transparent 70%)",
-                    filter: "blur(40px)",
-                  }}
-                />
+              <div className="relative max-w-md mx-auto lg:mx-0">
                 <img
                   src={ASSETS.simplyVisibleCover}
                   alt="Simply Visible: The Local Business Playbook for Getting Found, Trusted, and Chosen in the AI Era by Adam Loomis - Book Cover"
-                  className="relative w-full rounded-xl transition-transform duration-300 hover:scale-[1.02]"
+                  className="relative w-full rounded-md transition-transform duration-300 hover:-translate-y-1"
                   style={{
-                    boxShadow: "0 25px 60px rgba(0,0,0,0.6), 0 8px 24px rgba(212,175,55,0.08)",
+                    boxShadow:
+                      "0 30px 60px -20px rgba(0,0,0,0.18), 0 12px 24px -12px rgba(0,0,0,0.12)",
                   }}
                 />
               </div>
             </a>
           </div>
 
-          {/* Text + CTA — Right Column */}
+          {/* Text + CTA */}
           <div
-            className="order-2 lg:order-2"
+            className="lg:col-span-7"
             style={{
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateY(0)" : "translateY(32px)",
-              transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s",
+              transform: isVisible ? "translateY(0)" : "translateY(24px)",
+              transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms",
             }}
           >
-            {/* Label */}
-            <div className="flex items-center gap-3 mb-6">
-              <BookOpen size={18} className="text-[#D4AF37]" />
-              <p className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase">
-                Available Now
-              </p>
-            </div>
+            <p className="eyebrow-muted mb-5">A New Book by Adam Loomis</p>
 
-            {/* Headline */}
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white leading-tight mb-3">
-              The playbook local businesses have been waiting for.
+            <h2 className="display-serif text-4xl sm:text-5xl lg:text-[3.5rem] text-[#0A0A0A] mb-6">
+              The playbook local businesses
+              <br />
+              <span className="italic font-light text-[#6E6E6E]">have been waiting for.</span>
             </h2>
 
-            {/* Subheadline */}
-            <p className="text-[#D4AF37] text-xl font-semibold mb-6">
-              My new book is now available on Amazon.
-            </p>
-
-            {/* Body */}
-            <p className="text-white/55 text-lg leading-relaxed mb-10">
+            <p className="text-[#0A0A0A]/85 text-lg leading-relaxed mb-8 max-w-2xl">
               Most local businesses are doing great work that nobody can find.
               This book changes that.{" "}
-              <span className="text-white/70 italic">
+              <span className="italic text-[#0A0A0A]">
                 Simply Visible: The Local Business Playbook for Getting Found,
                 Trusted, and Chosen in the AI Era
               </span>{" "}
@@ -99,33 +85,23 @@ export default function SimplyVisibleSection() {
               what to do next.
             </p>
 
-            {/* CTAs: Buy on Amazon + Learn More */}
             <div className="flex flex-col sm:flex-row gap-3">
               <a
                 href={AMAZON_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold bg-[#D4AF37] text-black rounded-lg transition-all duration-300 hover:bg-[#F5D76E] hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:-translate-y-0.5"
+                className="btn-primary"
               >
                 Buy on Amazon
-                <ArrowRight
-                  size={18}
-                  className="transition-transform group-hover:translate-x-1"
-                />
+                <ArrowRight size={16} />
               </a>
-              <Link
-                href="/simply-visible"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white border border-white/15 rounded-lg transition-all duration-300 hover:border-[#D4AF37]/40 hover:text-[#D4AF37]"
-              >
-                Learn more about the book
+              <Link href="/simply-visible" className="btn-ghost">
+                Read more about the book
               </Link>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Subtle bottom border */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent" />
     </section>
   );
 }

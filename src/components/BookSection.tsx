@@ -1,11 +1,11 @@
 /*
- * Book Section — Conversational Marketing book showcase + endorsements + video
- * Design: Book photo on left, description + endorsements carousel on right, video below
+ * Book Section — Conversational Marketing (prior book)
+ * Design: "Editorial Authority" — dark feature for visual punctuation
  */
 import { useState, useEffect } from "react";
 import { ASSETS, ENDORSEMENTS } from "@/lib/constants";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { BookOpen, Quote, ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function BookSection() {
   const { ref, isVisible } = useScrollAnimation(0.1);
@@ -20,64 +20,60 @@ export default function BookSection() {
   }, []);
 
   return (
-    <section id="book" className="relative py-24 lg:py-32 bg-[#030303]">
+    <section id="book" className="relative py-24 lg:py-32 bg-[#0A0A0A]">
       <div ref={ref} className="container">
-        {/* Section Header */}
+        {/* Section masthead */}
         <div
-          className="text-center mb-16"
+          className="mb-16"
           style={{
             opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(24px)",
-            transition: "all 0.7s ease-out",
+            transform: isVisible ? "translateY(0)" : "translateY(16px)",
+            transition: "all 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
           }}
         >
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <BookOpen size={18} className="text-[#D4AF37]" />
-            <p className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase">
-              The Book
-            </p>
+          <div className="flex items-center gap-4 mb-8">
+            <span className="eyebrow text-white">Also from Adam</span>
+            <span className="h-px flex-1 bg-white/15" />
+            <span className="eyebrow-muted text-white/50">First Book</span>
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            Conversational Marketing
+          <h2 className="display-serif text-4xl sm:text-5xl lg:text-6xl text-white max-w-3xl">
+            <span className="italic font-light text-white/60">Conversational</span> Marketing.
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Book Image */}
           <div
-            className="flex justify-center"
+            className="lg:col-span-5"
             style={{
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "scale(1)" : "scale(0.9)",
-              transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s",
+              transform: isVisible ? "scale(1)" : "scale(0.94)",
+              transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 100ms",
             }}
           >
-            <div className="relative max-w-sm">
-              <div
-                className="absolute inset-0 rounded-2xl opacity-25"
-                style={{
-                  backgroundImage: `url(${ASSETS.bookBg})`,
-                  backgroundSize: "cover",
-                  filter: "blur(40px)",
-                }}
-              />
+            <div className="relative max-w-md mx-auto lg:mx-0">
               <img
                 src={ASSETS.bookPhoto}
                 alt="Conversational Marketing by Adam Loomis - Book Cover"
-                className="relative w-full rounded-2xl shadow-2xl border border-white/10"
+                className="relative w-full rounded-md"
+                style={{
+                  boxShadow:
+                    "0 30px 60px -20px rgba(0,0,0,0.7), 0 12px 24px -12px rgba(0,0,0,0.5)",
+                }}
               />
             </div>
           </div>
 
           {/* Content + Endorsements */}
           <div
+            className="lg:col-span-7"
             style={{
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateY(0)" : "translateY(32px)",
-              transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s",
+              transform: isVisible ? "translateY(0)" : "translateY(24px)",
+              transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms",
             }}
           >
-            <p className="text-white/55 text-lg leading-relaxed mb-8">
+            <p className="text-white/75 text-lg leading-relaxed mb-8 max-w-2xl">
               A practical guide to building trust, attention, and authentic
               conversations in modern marketing. Learn the strategies Adam uses
               to help brands reach millions through organic marketing and real
@@ -88,17 +84,14 @@ export default function BookSection() {
               href="https://www.amazon.com/CONVERSATIONAL-MARKETING-EFFECTIVELY-ENGAGE-SOCIAL-ebook/dp/B0FZLK3L4H"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold bg-[#D4AF37] text-black rounded transition-all duration-300 hover:bg-[#F5D76E] hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:-translate-y-0.5 mb-12"
+              className="btn-primary mb-12"
             >
               Get the Book
             </a>
 
             {/* Endorsements */}
-            <div className="relative">
-              <div className="gold-line mb-8" />
-              <p className="text-[#D4AF37] text-xs font-semibold tracking-[0.2em] uppercase mb-6">
-                What People Are Saying
-              </p>
+            <div className="pt-10 border-t border-white/15">
+              <p className="eyebrow text-white/70 mb-6">What People Are Saying</p>
 
               <div className="relative min-h-[220px]">
                 {ENDORSEMENTS.map((endorsement, i) => (
@@ -108,30 +101,25 @@ export default function BookSection() {
                     style={{
                       opacity: i === activeEndorsement ? 1 : 0,
                       transform: i === activeEndorsement ? "translateY(0)" : "translateY(8px)",
-                      transition: "all 0.6s ease-out",
+                      transition: "all 600ms ease-out",
                       pointerEvents: i === activeEndorsement ? "auto" : "none",
                     }}
                   >
-                    <Quote
-                      size={24}
-                      className="text-[#D4AF37]/25 mb-4"
-                    />
-                    <p className="text-white/65 text-base leading-relaxed italic mb-6">
-                      "{endorsement.quote}"
+                    <Quote size={28} className="text-[#FFC500] mb-4" />
+                    <p className="font-heading text-white text-xl sm:text-2xl leading-snug italic mb-6">
+                      &ldquo;{endorsement.quote}&rdquo;
                     </p>
                     <div>
                       <p className="text-white font-semibold text-sm">
                         {endorsement.name}
                       </p>
-                      <p className="text-white/35 text-sm">
-                        {endorsement.title}
-                      </p>
+                      <p className="text-white/50 text-sm">{endorsement.title}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Navigation dots */}
+              {/* Navigation */}
               <div className="flex items-center gap-4 mt-8">
                 <button
                   onClick={() =>
@@ -140,7 +128,7 @@ export default function BookSection() {
                         (prev - 1 + ENDORSEMENTS.length) % ENDORSEMENTS.length
                     )
                   }
-                  className="text-white/25 hover:text-[#D4AF37] transition-colors"
+                  className="text-white/40 hover:text-white transition-colors"
                   aria-label="Previous endorsement"
                 >
                   <ChevronLeft size={20} />
@@ -150,10 +138,11 @@ export default function BookSection() {
                     <button
                       key={i}
                       onClick={() => setActiveEndorsement(i)}
-                      className="h-2 rounded-full transition-all duration-400"
+                      className="h-px transition-all duration-300"
                       style={{
-                        width: i === activeEndorsement ? "24px" : "8px",
-                        backgroundColor: i === activeEndorsement ? "#D4AF37" : "rgba(255,255,255,0.15)",
+                        width: i === activeEndorsement ? "32px" : "16px",
+                        backgroundColor:
+                          i === activeEndorsement ? "#FFC500" : "rgba(255,255,255,0.25)",
                       }}
                       aria-label={`Go to endorsement ${i + 1}`}
                     />
@@ -165,7 +154,7 @@ export default function BookSection() {
                       (prev) => (prev + 1) % ENDORSEMENTS.length
                     )
                   }
-                  className="text-white/25 hover:text-[#D4AF37] transition-colors"
+                  className="text-white/40 hover:text-white transition-colors"
                   aria-label="Next endorsement"
                 >
                   <ChevronRight size={20} />
@@ -175,32 +164,23 @@ export default function BookSection() {
           </div>
         </div>
 
-        {/* YouTube Video Embed */}
+        {/* Video */}
         <div
           ref={videoRef}
           className="mt-20 lg:mt-28"
           style={{
             opacity: videoVisible ? 1 : 0,
-            transform: videoVisible ? "translateY(0)" : "translateY(32px)",
-            transition: "all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+            transform: videoVisible ? "translateY(0)" : "translateY(24px)",
+            transition: "all 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
           }}
         >
-          <div className="text-center mb-10">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Play size={18} className="text-[#D4AF37]" />
-              <p className="text-[#D4AF37] text-xs font-semibold tracking-[0.2em] uppercase">
-                Watch the Interview
-              </p>
-            </div>
-            <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white">
-              Watch Adam Discuss the Strategies Behind{" "}
-              <span className="text-[#D4AF37]">Conversational Marketing</span>
-            </h3>
+          <div className="flex items-center gap-4 mb-8">
+            <span className="eyebrow text-white">Watch the Interview</span>
+            <span className="h-px flex-1 bg-white/15" />
           </div>
-
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl">
             <div
-              className="relative rounded-2xl overflow-hidden border border-[#D4AF37]/20 shadow-[0_0_40px_rgba(212,175,55,0.08)]"
+              className="relative rounded-md overflow-hidden border border-white/15"
               style={{ paddingBottom: "56.25%" }}
             >
               <iframe

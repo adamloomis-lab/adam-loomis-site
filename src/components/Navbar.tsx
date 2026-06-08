@@ -1,6 +1,6 @@
 /*
- * Navbar — Fixed top navigation
- * Design: "Midnight Forge" — glass-morphism on scroll, gold accent hover states
+ * Navbar — Magazine masthead
+ * Design: "Editorial Authority" — light background, hairline divider, restrained
  */
 import { useState, useEffect } from "react";
 import { NAV_LINKS, ASSETS } from "@/lib/constants";
@@ -18,19 +18,19 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-black/85 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
-          : "bg-transparent"
+          ? "bg-white/95 backdrop-blur-md border-b border-[#E5E5E5]"
+          : "bg-white border-b border-transparent"
       }`}
     >
       <div className="container flex items-center justify-between h-16 lg:h-20">
-        {/* Logo */}
-        <a href="#hero" className="flex items-center">
+        {/* Logo / Masthead */}
+        <a href="#hero" className="flex items-center gap-3">
           <img
             src={ASSETS.logo}
             alt="Adam Loomis"
-            className="h-9 lg:h-11 w-auto brightness-0 invert"
+            className="h-8 lg:h-9 w-auto"
           />
         </a>
 
@@ -40,15 +40,14 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="relative text-sm font-medium tracking-wide text-white/60 hover:text-white transition-colors duration-300 group"
+              className="relative text-[13px] font-medium tracking-wide text-[#6E6E6E] hover:text-[#0A0A0A] transition-colors duration-200"
             >
               {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
           <a
             href="#contact"
-            className="ml-4 px-5 py-2 text-sm font-semibold bg-[#D4AF37] text-black rounded transition-all duration-300 hover:bg-[#F5D76E] hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+            className="ml-2 inline-flex items-center px-4 py-2 text-[13px] font-semibold bg-[#FFC500] text-[#0A0A0A] rounded transition-all duration-200 hover:bg-[#FFD633]"
           >
             Get In Touch
           </a>
@@ -57,26 +56,26 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-white/80 hover:text-white"
+          className="md:hidden text-[#0A0A0A]"
           aria-label="Toggle menu"
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-400 ${
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
           mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-black/95 backdrop-blur-xl border-t border-white/5 px-6 py-6 space-y-4">
+        <div className="bg-white border-t border-[#E5E5E5] px-6 py-6 space-y-4">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block text-base text-white/70 hover:text-[#D4AF37] transition-colors"
+              className="block text-base text-[#0A0A0A] hover:text-[#6E6E6E] transition-colors"
             >
               {link.label}
             </a>
@@ -84,7 +83,7 @@ export default function Navbar() {
           <a
             href="#contact"
             onClick={() => setMobileOpen(false)}
-            className="block mt-4 px-5 py-3 text-center text-sm font-semibold bg-[#D4AF37] text-black rounded"
+            className="block mt-4 px-5 py-3 text-center text-sm font-semibold bg-[#FFC500] text-[#0A0A0A] rounded"
           >
             Get In Touch
           </a>

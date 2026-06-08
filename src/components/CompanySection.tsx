@@ -1,6 +1,6 @@
 /*
  * Company Section — Adam Loomis Marketing
- * Design: Premium dark section showcasing the marketing firm
+ * Design: "Editorial Authority" — light, restrained, the firm's listing
  */
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ASSETS } from "@/lib/constants";
@@ -10,58 +10,50 @@ export default function CompanySection() {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
   return (
-    <section id="company" className="relative py-24 lg:py-32 bg-[#050505]">
-      {/* Subtle top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent" />
-
+    <section id="company" className="relative py-24 lg:py-32 bg-white">
       <div ref={ref} className="container">
         <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left — Logo & Visual */}
+          <div className="flex items-center gap-4 mb-16">
+            <span className="eyebrow">The Firm</span>
+            <span className="h-px flex-1 bg-[#E5E5E5]" />
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Logo */}
             <div
-              className="flex flex-col items-center lg:items-start"
+              className="lg:col-span-5"
               style={{
                 opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "translateY(0)" : "translateY(32px)",
+                transform: isVisible ? "translateY(0)" : "translateY(20px)",
                 transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
               }}
             >
-              <div className="relative w-full max-w-sm">
-                {/* Glow effect behind logo */}
-                <div className="absolute inset-0 bg-[#D4AF37]/5 rounded-2xl blur-3xl" />
-                <div className="relative p-8 lg:p-12 rounded-2xl border border-white/6 bg-gradient-to-br from-white/[0.03] to-transparent">
-                  <img
-                    src={ASSETS.almLogo}
-                    alt="Adam Loomis Marketing"
-                    className="w-full h-auto"
-                  />
-                </div>
+              <div className="relative bg-[#FAFAFA] border border-[#E5E5E5] rounded-md p-12 lg:p-16">
+                <img
+                  src={ASSETS.almLogo}
+                  alt="Adam Loomis Marketing"
+                  className="w-full h-auto"
+                />
               </div>
-
             </div>
 
-            {/* Right — Content */}
+            {/* Content */}
             <div
+              className="lg:col-span-7"
               style={{
                 opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "translateY(0)" : "translateY(32px)",
-                transition:
-                  "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s",
+                transform: isVisible ? "translateY(0)" : "translateY(20px)",
+                transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 200ms",
               }}
             >
-              <p className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
-                The Firm
-              </p>
-              <h2 className="font-heading text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
-                Adam Loomis
-                <br />
-                Marketing
+              <h2 className="display-serif text-4xl sm:text-5xl lg:text-[3.5rem] text-[#0A0A0A] mb-6 leading-[1.05]">
+                Adam Loomis <span className="italic font-light text-[#6E6E6E]">Marketing.</span>
               </h2>
-              <p className="text-[#D4AF37]/80 text-lg font-medium mb-6">
+              <p className="text-[#0A0A0A] text-xl font-medium mb-8 max-w-xl">
                 Strategic marketing systems for companies ready to scale.
               </p>
 
-              <div className="space-y-5 text-white/55 text-base leading-[1.8] mb-8">
+              <div className="space-y-5 text-[#0A0A0A]/80 text-[16px] leading-[1.75] mb-10 max-w-xl">
                 <p>
                   Adam Loomis Marketing is a strategic marketing firm
                   spearheaded by Adam Loomis and supported by an exceptional
@@ -79,11 +71,11 @@ export default function CompanySection() {
                 href="https://www.adamloomismarketing.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 px-8 py-4 text-sm font-semibold bg-[#D4AF37] text-black rounded transition-all duration-300 hover:bg-[#F5D76E] hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:-translate-y-0.5"
+                className="btn-primary group"
               >
                 Visit Adam Loomis Marketing
                 <ArrowUpRight
-                  size={18}
+                  size={16}
                   className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 />
               </a>
@@ -91,9 +83,6 @@ export default function CompanySection() {
           </div>
         </div>
       </div>
-
-      {/* Subtle bottom border */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
     </section>
   );
 }

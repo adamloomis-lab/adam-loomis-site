@@ -1,6 +1,6 @@
 /*
- * Expertise Section — Four pillars of what Adam teaches
- * Design: Dark cards with gold border glow on hover, staggered reveal
+ * Expertise Section — Editorial pillars
+ * Design: "Editorial Authority" — numbered grid, hairline cards, no shadows
  */
 import { EXPERTISE_PILLARS } from "@/lib/constants";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -17,54 +17,53 @@ export default function ExpertiseSection() {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
   return (
-    <section id="about" className="relative py-24 lg:py-32 bg-black">
+    <section id="about" className="relative py-24 lg:py-32 bg-white">
       <div ref={ref} className="container">
-        {/* Section Header */}
+        {/* Section masthead */}
         <div
-          className="text-center mb-16 lg:mb-20"
+          className="mb-16 lg:mb-20 max-w-3xl"
           style={{
             opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(24px)",
-            transition: "all 0.7s ease-out",
+            transform: isVisible ? "translateY(0)" : "translateY(16px)",
+            transition: "all 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
           }}
         >
-          <p className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
-            Areas of Expertise
-          </p>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-            What Adam Teaches
+          <div className="flex items-center gap-4 mb-8">
+            <span className="eyebrow">Areas of Expertise</span>
+            <span className="h-px flex-1 bg-[#E5E5E5]" />
+          </div>
+          <h2 className="display-serif text-4xl sm:text-5xl lg:text-6xl text-[#0A0A0A]">
+            What Adam teaches.
           </h2>
-          <div className="gold-line w-24 mx-auto" />
         </div>
 
-        {/* Pillars Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        {/* Pillars Grid — 4 columns, numbered, hairline */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 border-t border-[#E5E5E5]">
           {EXPERTISE_PILLARS.map((pillar, i) => {
             const Icon = iconMap[pillar.icon];
+            const num = String(i + 1).padStart(2, "0");
             return (
               <div
                 key={pillar.title}
-                className="group relative p-8 rounded-lg bg-[#080808] border border-white/5 hover:border-[#D4AF37]/20 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(212,175,55,0.08)]"
+                className={`group relative p-8 lg:p-10 border-b border-[#E5E5E5] ${
+                  i < 3 ? "lg:border-r" : ""
+                } ${i % 2 === 0 ? "sm:border-r" : ""} sm:[&:nth-child(2)]:border-r-0 lg:[&:nth-child(2)]:border-r lg:[&:nth-child(4)]:border-r-0 transition-colors duration-300 hover:bg-[#FAFAFA]`}
                 style={{
                   opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? "translateY(0)" : "translateY(32px)",
-                  transition: `all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${i * 120 + 200}ms`,
+                  transform: isVisible ? "translateY(0)" : "translateY(24px)",
+                  transition: `all 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94) ${i * 100 + 150}ms`,
                 }}
               >
-                {/* Hover glow overlay */}
-                <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#D4AF37]/5 via-transparent to-[#D4AF37]/3 pointer-events-none" />
-
-                <div className="relative z-10">
-                  <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-[#D4AF37]/8 mb-6 group-hover:bg-[#D4AF37]/15 transition-colors duration-300">
-                    {Icon && <Icon size={24} className="text-[#D4AF37]" />}
-                  </div>
-                  <h3 className="font-heading text-xl font-semibold text-white mb-3 group-hover:text-[#F5D76E] transition-colors duration-300">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-white/45 leading-relaxed text-sm">
-                    {pillar.description}
-                  </p>
+                <div className="flex items-center justify-between mb-8">
+                  <span className="eyebrow-muted">No. {num}</span>
+                  {Icon && <Icon size={20} className="text-[#0A0A0A]" />}
                 </div>
+                <h3 className="font-heading text-[1.4rem] font-medium text-[#0A0A0A] mb-3 leading-tight">
+                  {pillar.title}
+                </h3>
+                <p className="text-[#6E6E6E] leading-relaxed text-[15px]">
+                  {pillar.description}
+                </p>
               </div>
             );
           })}

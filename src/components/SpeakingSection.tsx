@@ -1,11 +1,11 @@
 /*
- * Speaking Section — Asymmetric layout with crossfading speaking photos
- * Design: Single image frame on left that fades between two photos, content on right with gold accents
+ * Speaking Section — Editorial portfolio
+ * Design: "Editorial Authority" — crossfading photo with caption, editorial topic list
  */
 import { useState, useEffect } from "react";
 import { ASSETS, SPEAKING_TOPICS } from "@/lib/constants";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Mic, CheckCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function SpeakingSection() {
   const { ref, isVisible } = useScrollAnimation(0.1);
@@ -17,23 +17,30 @@ export default function SpeakingSection() {
     if (!isVisible) return;
     const interval = setInterval(() => {
       setActiveImage((prev) => (prev + 1) % speakingImages.length);
-    }, 4000);
+    }, 4500);
     return () => clearInterval(interval);
   }, [isVisible, speakingImages.length]);
 
   return (
-    <section id="speaking" className="relative py-24 lg:py-32 bg-[#040404]">
+    <section id="speaking" className="relative py-24 lg:py-32 bg-white">
       <div ref={ref} className="container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Crossfading Image */}
+        <div className="flex items-center gap-4 mb-16">
+          <span className="eyebrow">Speaking</span>
+          <span className="h-px flex-1 bg-[#E5E5E5]" />
+          <span className="eyebrow-muted">2026 Schedule Open</span>
+        </div>
+
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Photo column */}
           <div
+            className="lg:col-span-7"
             style={{
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateX(0)" : "translateX(-40px)",
+              transform: isVisible ? "translateY(0)" : "translateY(20px)",
               transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
             }}
           >
-            <div className="relative rounded-lg overflow-hidden shadow-2xl aspect-[4/3]">
+            <div className="relative overflow-hidden rounded-md aspect-[4/3] bg-[#FAFAFA]">
               {speakingImages.map((src, i) => (
                 <img
                   key={i}
@@ -43,79 +50,66 @@ export default function SpeakingSection() {
                   style={{ opacity: activeImage === i ? 1 : 0 }}
                 />
               ))}
-              {/* Gold accent corner */}
-              <div className="absolute -top-0 -left-0 w-16 h-16 border-t-2 border-l-2 border-[#D4AF37]/30 rounded-tl-lg z-10" />
-              {/* Subtle bottom gradient for depth */}
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/40 to-transparent" />
             </div>
-            {/* Dot indicators */}
-            <div className="flex justify-center gap-2 mt-4">
-              {speakingImages.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveImage(i)}
-                  className={`w-2 h-2 rounded-full transition-all duration-500 ${
-                    activeImage === i
-                      ? "bg-[#D4AF37] w-6"
-                      : "bg-white/20 hover:bg-white/40"
-                  }`}
-                  aria-label={`View speaking photo ${i + 1}`}
-                />
-              ))}
+            <div className="mt-4 flex items-center justify-between">
+              <p className="eyebrow-muted">
+                {String(activeImage + 1).padStart(2, "0")} / {String(speakingImages.length).padStart(2, "0")} &middot; On Stage
+              </p>
+              <div className="flex gap-2">
+                {speakingImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveImage(i)}
+                    className={`h-px transition-all duration-300 ${
+                      activeImage === i ? "bg-[#0A0A0A] w-12" : "bg-[#E5E5E5] w-6 hover:bg-[#6E6E6E]"
+                    }`}
+                    aria-label={`View speaking photo ${i + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Content */}
+          {/* Copy column */}
           <div
+            className="lg:col-span-5"
             style={{
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateX(0)" : "translateX(40px)",
-              transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s",
+              transform: isVisible ? "translateY(0)" : "translateY(20px)",
+              transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 200ms",
             }}
           >
-            <div className="flex items-center gap-3 mb-4">
-              <Mic size={18} className="text-[#D4AF37]" />
-              <p className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase">
-                Speaking
-              </p>
-            </div>
-
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-              Book Adam Loomis for
-              <br />
-              <span className="gold-gradient-text">Your Next Event</span>
+            <h2 className="display-serif text-4xl sm:text-5xl lg:text-[3rem] text-[#0A0A0A] mb-6">
+              Book Adam for your <span className="italic font-light text-[#6E6E6E]">next event.</span>
             </h2>
 
-            <p className="text-white/55 text-lg leading-relaxed mb-8">
+            <p className="text-[#0A0A0A]/75 text-lg leading-relaxed mb-10">
               Adam speaks to entrepreneurs, leaders, and organizations about
               practical marketing strategies that build real attention and trust.
             </p>
 
-            <div className="space-y-4 mb-10">
+            <ul className="space-y-0 border-t border-[#E5E5E5] mb-10">
               {SPEAKING_TOPICS.map((topic, i) => (
-                <div
+                <li
                   key={topic}
-                  className="flex items-start gap-3"
+                  className="flex items-baseline gap-4 py-4 border-b border-[#E5E5E5]"
                   style={{
                     opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? "translateX(0)" : "translateX(20px)",
-                    transition: `all 0.6s ease-out ${0.4 + i * 0.1}s`,
+                    transform: isVisible ? "translateX(0)" : "translateX(12px)",
+                    transition: `all 600ms ease-out ${350 + i * 80}ms`,
                   }}
                 >
-                  <CheckCircle
-                    size={18}
-                    className="text-[#D4AF37] mt-0.5 flex-shrink-0"
-                  />
-                  <span className="text-white/65">{topic}</span>
-                </div>
+                  <span className="eyebrow-muted text-[10px] tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-[#0A0A0A] text-[15px] leading-snug flex-1">{topic}</span>
+                </li>
               ))}
-            </div>
+            </ul>
 
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold bg-[#D4AF37] text-black rounded transition-all duration-300 hover:bg-[#F5D76E] hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:-translate-y-0.5"
-            >
+            <a href="#contact" className="btn-primary">
               Book Adam to Speak
+              <ArrowRight size={16} />
             </a>
           </div>
         </div>
