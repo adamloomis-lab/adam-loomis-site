@@ -3,15 +3,10 @@
  * Distraction-free layout: logo only, no nav, no footer nav
  * 5 sections: Hero, Book Intro, Takeaways, About Author, Final CTA
  */
-import { useState } from "react";
 import { Link } from "wouter";
 import { ASSETS } from "@/lib/constants";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useNetlifyForm } from "@/lib/netlifyForm";
 import {
-  Mail,
-  User,
-  CheckCircle,
   ArrowRight,
   Search,
   Route,
@@ -19,130 +14,29 @@ import {
   Zap,
 } from "lucide-react";
 
-/* ─── Shared signup form component ─── */
-function SignupForm({ variant = "dark" }: { variant?: "dark" | "light" }) {
-  const [firstName, setFirstName] = useState("");
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+const AMAZON_URL =
+  "https://www.amazon.com/Simply-Visible-Adam-Loomis-ebook/dp/B0H3FLDD55";
 
-  const signupMutation = useNetlifyForm<{ firstName: string; email: string }>("simply-visible", {
-    onSuccess: () => setSubmitted(true),
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!firstName.trim() || !email.trim()) return;
-    signupMutation.mutate({ firstName: firstName.trim(), email: email.trim() });
-  };
-
-  const isDark = variant === "dark";
-
-  if (submitted) {
-    return (
-      <div
-        className={`flex items-start gap-4 p-6 rounded-xl border ${
-          isDark
-            ? "border-[#D4AF37]/20 bg-[#D4AF37]/[0.04]"
-            : "border-[#D4AF37]/30 bg-[#D4AF37]/[0.08]"
-        }`}
-        style={{ animation: "fadeIn 0.5s ease-out" }}
-      >
-        <CheckCircle size={24} className="text-[#D4AF37] shrink-0 mt-0.5" />
-        <div>
-          <p className={`font-semibold mb-1 ${isDark ? "text-white" : "text-gray-900"}`}>
-            Thanks, {firstName}! You're on the list.
-          </p>
-          <p className={`text-sm ${isDark ? "text-white/50" : "text-gray-600"}`}>
-            We will reach out the moment Simply Visible is available.
-          </p>
-        </div>
-      </div>
-    );
-  }
-
+/* ─── Buy on Amazon CTA ─── */
+function BuyOnAmazon({ align = "left" }: { align?: "left" | "center" }) {
   return (
-    <form
-      name="simply-visible"
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      onSubmit={handleSubmit}
-      className="space-y-4"
-    >
-      <input type="hidden" name="form-name" value="simply-visible" />
-      <p className="hidden">
-        <label>Don't fill this out: <input name="bot-field" /></label>
-      </p>
-      <div className="flex flex-col sm:flex-row gap-3">
-        <div className="relative flex-1">
-          <User
-            size={18}
-            className={`absolute left-4 top-1/2 -translate-y-1/2 ${
-              isDark ? "text-white/25" : "text-gray-400"
-            }`}
-          />
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-            className={`w-full pl-11 pr-4 py-4 rounded-lg transition-all duration-300 ${
-              isDark
-                ? "bg-white/[0.04] border border-white/10 text-white placeholder:text-white/30 focus:border-[#D4AF37]/40 focus:bg-white/[0.06]"
-                : "bg-white border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/20"
-            } focus:outline-none`}
-          />
-        </div>
-        <div className="relative flex-1">
-          <Mail
-            size={18}
-            className={`absolute left-4 top-1/2 -translate-y-1/2 ${
-              isDark ? "text-white/25" : "text-gray-400"
-            }`}
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className={`w-full pl-11 pr-4 py-4 rounded-lg transition-all duration-300 ${
-              isDark
-                ? "bg-white/[0.04] border border-white/10 text-white placeholder:text-white/30 focus:border-[#D4AF37]/40 focus:bg-white/[0.06]"
-                : "bg-white border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/20"
-            } focus:outline-none`}
-          />
-        </div>
-      </div>
-      <button
-        type="submit"
-        disabled={signupMutation.isPending}
-        className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold bg-[#D4AF37] text-black rounded-lg transition-all duration-300 hover:bg-[#F5D76E] hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+    <div className={`space-y-3 ${align === "center" ? "flex flex-col items-center" : ""}`}>
+      <a
+        href={AMAZON_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold bg-[#D4AF37] text-black rounded-lg transition-all duration-300 hover:bg-[#F5D76E] hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:-translate-y-0.5"
       >
-        {signupMutation.isPending ? (
-          "Signing up..."
-        ) : (
-          <>
-            Notify me when it's available
-            <ArrowRight
-              size={18}
-              className="transition-transform group-hover:translate-x-1"
-            />
-          </>
-        )}
-      </button>
-      {signupMutation.isError && (
-        <p className="text-red-400 text-sm">
-          Something went wrong. Please try again.
-        </p>
-      )}
-      <p className={`text-sm ${isDark ? "text-white/30" : "text-gray-400"}`}>
-        No spam. Just one email when it is live.
+        Buy on Amazon
+        <ArrowRight
+          size={18}
+          className="transition-transform group-hover:translate-x-1"
+        />
+      </a>
+      <p className="text-white/30 text-sm">
+        Available now in Kindle and paperback.
       </p>
-    </form>
+    </div>
   );
 }
 
@@ -218,7 +112,7 @@ export default function SimplyVisible() {
             {/* Headline + Form */}
             <div className="order-2">
               <p className="text-[#D4AF37] text-sm font-semibold tracking-[0.2em] uppercase mb-6">
-                Coming Soon
+                Available Now
               </p>
               <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
                 Your customers are searching.{" "}
@@ -226,9 +120,9 @@ export default function SimplyVisible() {
               </h1>
               <p className="text-white/55 text-xl leading-relaxed mb-10">
                 The playbook for local business owners who are tired of being
-                invisible online is almost here.
+                invisible online is here.
               </p>
-              <SignupForm variant="dark" />
+              <BuyOnAmazon />
             </div>
           </div>
         </div>
@@ -395,13 +289,14 @@ export default function SimplyVisible() {
             }}
           >
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Be the first to know when it launches.
+              Get the book today.
             </h2>
             <p className="text-white/55 text-lg leading-relaxed mb-10">
-              Drop your email below and you will get a heads up the moment the
-              book is available.
+              Simply Visible is available now on Amazon in Kindle and paperback.
+              Grab your copy and start showing up where your customers are
+              looking.
             </p>
-            <SignupForm variant="dark" />
+            <BuyOnAmazon align="center" />
           </div>
         </div>
       </section>
