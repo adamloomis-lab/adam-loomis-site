@@ -14,6 +14,7 @@ export const ASSETS = {
   whiteIcon: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663307809653/vECRLfsTCfFAuMtI.webp?Expires=1804436066&Signature=nvMUH145enc~NOu~0QFoChC6yvRx7FFUmOxKOhiAayBgMZVCMCrc5zlSHPnMjKjpo51Ee1lUkNoAmepwloUM32hqCUANoFItWXyb47GuWKv6Wt6HgkUVKh52HnB2aqtPyBfmhUbGJFH4vct3UUvBj7pPWmMvegF9YabHEYCiBWUwsAQC1EQbg5ubmSeHfplxqBnR2GRMRtil2MndDG6AF8elq6jJ6q2cNjTi0fhWXO9S4CYq8VmLFmWPfWRTEMLSvNDMnj4X7k4b~NwgbZSyshOrfKGhQiXHmeQY3awVRXzozkFxjbpT~g365gEjDF1HCmZVwKHiko8c73BH0BkSCQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
   aboutSelfie: "https://d2xsxph8kpxj0f.cloudfront.net/310519663307809653/iSGdkRyQsxV59hys4MR3Ky/about-selfie_f0d8c856.jpg",
   almLogo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663307809653/iSGdkRyQsxV59hys4MR3Ky/alm-logo_4481cd68.webp",
+  almMonogramDark: "/images/alm-monogram-dark.png",
   heroBg: "https://d2xsxph8kpxj0f.cloudfront.net/310519663307809653/iSGdkRyQsxV59hys4MR3Ky/hero-bg-2L8WxZkTE2hmyYEAHcZGFd.webp",
   statsBg: "https://d2xsxph8kpxj0f.cloudfront.net/310519663307809653/iSGdkRyQsxV59hys4MR3Ky/stats-bg-kqdj2jrUsQxLbXa7HjCUcX.webp",
   ctaBg: "https://d2xsxph8kpxj0f.cloudfront.net/310519663307809653/iSGdkRyQsxV59hys4MR3Ky/cta-bg-B8BktjDdyNBGR6kfrryqGL.webp",

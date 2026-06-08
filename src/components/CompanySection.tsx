@@ -28,11 +28,11 @@ export default function CompanySection() {
                 transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
               }}
             >
-              <div className="relative bg-[#0A0A0A] rounded-md p-12 lg:p-16 aspect-square flex items-center justify-center">
+              <div className="relative bg-[#FAFAFA] border border-[#E5E5E5] rounded-md p-8 lg:p-12 aspect-square flex items-center justify-center">
                 <img
-                  src={ASSETS.almLogo}
+                  src={ASSETS.almMonogramDark}
                   alt="Adam Loomis Marketing"
-                  className="w-full max-w-[280px] h-auto"
+                  className="w-full max-w-[340px] h-auto"
                 />
               </div>
             </div>

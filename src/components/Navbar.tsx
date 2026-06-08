@@ -28,9 +28,15 @@ export default function Navbar() {
         {/* Logo / Masthead */}
         <a href="#hero" className="flex items-center gap-3">
           <img
+            src={ASSETS.almMonogramDark}
+            alt=""
+            aria-hidden="true"
+            className="h-9 lg:h-10 w-9 lg:w-10 object-contain"
+          />
+          <img
             src={ASSETS.logo}
             alt="Adam Loomis"
-            className="h-8 lg:h-9 w-auto"
+            className="h-7 lg:h-8 w-auto"
           />
         </a>
 

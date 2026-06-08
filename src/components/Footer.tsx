@@ -21,7 +21,15 @@ export default function Footer() {
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           {/* Logo + Tagline */}
           <div className="lg:col-span-5">
-            <img src={ASSETS.logo} alt="Adam Loomis" className="h-9 w-auto mb-5" />
+            <div className="flex items-center gap-3 mb-6">
+              <img
+                src={ASSETS.almMonogramDark}
+                alt=""
+                aria-hidden="true"
+                className="h-12 w-12 object-contain"
+              />
+              <img src={ASSETS.logo} alt="Adam Loomis" className="h-8 w-auto" />
+            </div>
             <p className="text-[#6E6E6E] text-[15px] leading-relaxed max-w-sm">
               Marketing strategist, speaker, and entrepreneur helping businesses
               grow through practical organic marketing strategies.
