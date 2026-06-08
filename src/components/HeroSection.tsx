@@ -24,9 +24,8 @@ export default function HeroSection() {
             transition: "all 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
           }}
         >
-          <span className="eyebrow">Issue 01</span>
+          <span className="eyebrow">Marketing &middot; Speaking &middot; The Book</span>
           <span className="h-px flex-1 bg-[#E5E5E5]" />
-          <span className="eyebrow-muted">Marketing &middot; Speaking &middot; The Book</span>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
@@ -109,9 +108,7 @@ export default function HeroSection() {
             transition: "opacity 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 550ms",
           }}
         >
-          <p className="eyebrow-muted">
-            Featured in this issue
-          </p>
+          <p className="eyebrow-muted">Explore</p>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-[#0A0A0A]">
             <a href="#book" className="hover:underline underline-offset-4">The new book &mdash; Simply Visible</a>
             <a href="#podcast" className="hover:underline underline-offset-4">Mondays with Adam podcast</a>
