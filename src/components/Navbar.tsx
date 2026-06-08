@@ -31,7 +31,7 @@ export default function Navbar() {
             src={ASSETS.almMonogramDark}
             alt=""
             aria-hidden="true"
-            className="h-9 lg:h-10 w-9 lg:w-10 object-contain"
+            className="h-12 lg:h-14 w-12 lg:w-14 object-contain"
           />
           <img
             src={ASSETS.logo}
