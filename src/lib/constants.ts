@@ -19,7 +19,7 @@ export const ASSETS = {
   statsBg: "https://d2xsxph8kpxj0f.cloudfront.net/310519663307809653/iSGdkRyQsxV59hys4MR3Ky/stats-bg-kqdj2jrUsQxLbXa7HjCUcX.webp",
   ctaBg: "https://d2xsxph8kpxj0f.cloudfront.net/310519663307809653/iSGdkRyQsxV59hys4MR3Ky/cta-bg-B8BktjDdyNBGR6kfrryqGL.webp",
   bookBg: "https://d2xsxph8kpxj0f.cloudfront.net/310519663307809653/iSGdkRyQsxV59hys4MR3Ky/book-mockup-bg-WkNttQAPbSFNnzxaRreQKz.webp",
-  simplyVisibleCover: "https://d2xsxph8kpxj0f.cloudfront.net/310519663307809653/iSGdkRyQsxV59hys4MR3Ky/Gemini_Generated_Image_63abli63abli63ab_468f611a.webp",
+  simplyVisibleCover: "/images/book/simply-visible-cover.jpg",
 } as const;
 
 export const NAV_LINKS = [
