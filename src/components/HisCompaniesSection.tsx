@@ -54,7 +54,9 @@ const COMPANIES: Company[] = [
     name: "Benchmark Flooring",
     href: "https://benchfloor-xmb7rrxy.manus.space/",
     description: "Northeast Ohio's standard for flooring installation.",
-    kind: "wordmark",
+    logo: "/images/companies/benchmark.png",
+    kind: "logo",
+    logoClass: "h-16 lg:h-20",
   },
 ];
 
