@@ -52,8 +52,7 @@ export default function CookieBanner() {
       <p className="eyebrow mb-3">A note on cookies</p>
       <p className="text-[#0A0A0A] text-[15px] leading-relaxed mb-2">
         We use a couple of essential cookies &mdash; the kind that make forms
-        work, not the kind that follow you around the internet sniffing your
-        receipts.
+        work. No tracking, no profiling, no third-party tag-alongs.
       </p>
       <p className="text-[#6E6E6E] text-[13px] leading-relaxed mb-5">
         One of them remembers you&apos;ve already read this notice, so it
