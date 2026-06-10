@@ -2,6 +2,7 @@
  * Footer — Editorial masthead colophon
  * Design: "Editorial Authority" — light, hairline, restrained
  */
+import { Link } from "wouter";
 import { ASSETS, NAV_LINKS, SOCIAL_LINKS } from "@/lib/constants";
 
 export default function Footer() {
@@ -40,15 +41,25 @@ export default function Footer() {
           <div className="lg:col-span-3">
             <p className="eyebrow mb-5">Sections</p>
             <div className="space-y-2">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="block text-[#0A0A0A] text-[14px] hover:underline underline-offset-4"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {NAV_LINKS.map((link) =>
+                link.href.startsWith("/") ? (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block text-[#0A0A0A] text-[14px] hover:underline underline-offset-4"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={`/${link.href}`}
+                    className="block text-[#0A0A0A] text-[14px] hover:underline underline-offset-4"
+                  >
+                    {link.label}
+                  </a>
+                )
+              )}
             </div>
           </div>
 
