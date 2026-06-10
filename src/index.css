@@ -40,8 +40,8 @@
   --color-accent-blue: #64D5FF;
 
   --font-heading: "Fraunces", "Source Serif 4", Georgia, serif;
-  --font-body: "Inter", system-ui, -apple-system, sans-serif;
-  --font-eyebrow: "Inter", system-ui, sans-serif;
+  --font-body: "Lexend", system-ui, -apple-system, sans-serif;
+  --font-eyebrow: "Lexend", system-ui, sans-serif;
 }
 
 :root {
