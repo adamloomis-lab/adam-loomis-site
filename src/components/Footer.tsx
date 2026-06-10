@@ -91,8 +91,30 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Legal links row */}
+        <div className="mt-16 pt-8 border-t border-[#E5E5E5] flex flex-wrap items-center gap-x-6 gap-y-2">
+          <Link
+            href="/privacy"
+            className="text-[#0A0A0A] text-[13px] hover:underline underline-offset-4"
+          >
+            Privacy Policy
+          </Link>
+          <Link
+            href="/terms"
+            className="text-[#0A0A0A] text-[13px] hover:underline underline-offset-4"
+          >
+            Terms of Service
+          </Link>
+          <Link
+            href="/accessibility"
+            className="text-[#0A0A0A] text-[13px] hover:underline underline-offset-4"
+          >
+            Accessibility
+          </Link>
+        </div>
+
         {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-[#E5E5E5] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="mt-8 pt-6 border-t border-[#E5E5E5] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="eyebrow-muted">
             &copy; {currentYear} Adam Loomis &middot; All rights reserved
           </p>
