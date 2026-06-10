@@ -113,12 +113,12 @@ export default function BookLaunchModal() {
               id="book-launch-title"
               className="display-serif text-3xl sm:text-4xl text-[#0A0A0A] mb-3 leading-[1.05]"
             >
-              The paperback <span className="italic font-light text-[#6E6E6E]">is here.</span>
+              The book <span className="italic font-light text-[#6E6E6E]">is here.</span>
             </h2>
             <p className="text-[#0A0A0A]/80 text-[15px] leading-relaxed mb-8">
               Simply Visible &mdash; the playbook for local businesses who want
               to be found, trusted, and chosen in the AI era &mdash; is now
-              available in paperback and Kindle on Amazon.
+              available on Amazon.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-5">
