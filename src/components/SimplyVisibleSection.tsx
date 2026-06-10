@@ -1,14 +1,12 @@
 /*
- * Simply Visible Book Section — Editorial book feature
+ * Simply Visible Section (Homepage) — Gateway to the project hub
  * Design: "Editorial Authority" — paper background, book cover hero, restrained
+ * All CTAs route to /simply-visible (the hub covering book + podcast + system).
  */
 import { Link } from "wouter";
 import { ASSETS } from "@/lib/constants";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight } from "lucide-react";
-
-const AMAZON_URL =
-  "https://www.amazon.com/Simply-Visible-Adam-Loomis-ebook/dp/B0H3FLDD55";
 
 export default function SimplyVisibleSection() {
   const { ref, isVisible } = useScrollAnimation(0.1);
@@ -18,9 +16,9 @@ export default function SimplyVisibleSection() {
       <div ref={ref} className="container">
         {/* Section masthead */}
         <div className="flex items-center gap-4 mb-12">
-          <span className="eyebrow text-[#0A0A0A]">The Book</span>
+          <span className="eyebrow text-[#0A0A0A]">Simply Visible</span>
           <span className="h-px flex-1 bg-[#E5E5E5]" />
-          <span className="eyebrow-muted">Available Now</span>
+          <span className="eyebrow-muted">Book &middot; Podcast &middot; System</span>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -33,17 +31,15 @@ export default function SimplyVisibleSection() {
               transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 100ms",
             }}
           >
-            <a
-              href={AMAZON_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Buy Simply Visible on Amazon"
+            <Link
+              href="/simply-visible"
+              aria-label="Explore Simply Visible"
               className="block"
             >
               <div className="relative max-w-md mx-auto lg:mx-0">
                 <img
                   src={ASSETS.simplyVisibleCover}
-                  alt="Simply Visible: The Local Business Playbook for Getting Found, Trusted, and Chosen in the AI Era by Adam Loomis - Book Cover"
+                  alt="Simply Visible: How Local Businesses Get Found, Trusted, and Chosen in the AI Era by Adam Loomis - Book Cover"
                   className="relative w-full rounded-md transition-transform duration-300 hover:-translate-y-1"
                   style={{
                     boxShadow:
@@ -51,7 +47,7 @@ export default function SimplyVisibleSection() {
                   }}
                 />
               </div>
-            </a>
+            </Link>
           </div>
 
           {/* Text + CTA */}
@@ -63,7 +59,7 @@ export default function SimplyVisibleSection() {
               transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 250ms",
             }}
           >
-            <p className="eyebrow-muted mb-5">A New Book by Adam Loomis</p>
+            <p className="eyebrow-muted mb-5">A New Project by Adam Loomis</p>
 
             <h2 className="display-serif text-4xl sm:text-5xl lg:text-[3.5rem] text-[#0A0A0A] mb-6">
               The playbook local businesses
@@ -73,30 +69,16 @@ export default function SimplyVisibleSection() {
 
             <p className="text-[#0A0A0A]/85 text-lg leading-relaxed mb-8 max-w-2xl">
               Most local businesses are doing great work that nobody can find.
-              This book changes that.{" "}
-              <span className="italic text-[#0A0A0A]">
-                Simply Visible: The Local Business Playbook for Getting Found,
-                Trusted, and Chosen in the AI Era
-              </span>{" "}
-              is a practical, no-fluff guide for business owners who want to stop
-              being invisible online and start being the obvious choice in their
-              market. Whether you're just getting started or you've been at it
-              for years, this book meets you where you are and shows you exactly
-              what to do next.
+              Simply Visible changes that &mdash; a book, a podcast, and a
+              system for getting found, trusted, and chosen in the AI era. The
+              paperback is now available on Amazon, and the podcast launches
+              soon.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href={AMAZON_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
-                Buy on Amazon
+              <Link href="/simply-visible" className="btn-primary">
+                Explore Simply Visible
                 <ArrowRight size={16} />
-              </a>
-              <Link href="/simply-visible" className="btn-ghost">
-                Read more about the book
               </Link>
             </div>
           </div>
