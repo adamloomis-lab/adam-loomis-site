@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import PlaybookThankYou from "./pages/PlaybookThankYou";
 import Privacy from "./pages/Privacy";
 import SimplyVisible from "./pages/SimplyVisible";
+import SimplyVisiblePreview from "./pages/SimplyVisiblePreview";
 import Terms from "./pages/Terms";
 
 function Router() {
@@ -18,6 +19,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/playbook-thank-you" component={PlaybookThankYou} />
+      <Route path="/simply-visible/preview" component={SimplyVisiblePreview} />
       <Route path="/simply-visible" component={SimplyVisible} />
       <Route path="/books" component={Books} />
       <Route path="/privacy" component={Privacy} />

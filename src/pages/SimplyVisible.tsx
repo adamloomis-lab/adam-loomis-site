@@ -45,7 +45,15 @@ function BuyButtons({ align = "left" }: { align?: "left" | "center" }) {
           <ArrowRight size={16} />
         </a>
       </div>
-      <p className="eyebrow-muted">Now in paperback &amp; Kindle</p>
+      <div className={`flex items-center gap-3 ${align === "center" ? "justify-center" : ""}`}>
+        <Link
+          href="/simply-visible/preview"
+          className="text-[#0A0A0A] text-[14px] font-medium underline decoration-[#FFC500] decoration-2 underline-offset-4 hover:decoration-[#0A0A0A] transition-colors"
+        >
+          Read a free preview &rarr;
+        </Link>
+        <span className="eyebrow-muted">15-min read</span>
+      </div>
     </div>
   );
 }

@@ -80,6 +80,9 @@ export default function SimplyVisibleSection() {
                 Explore Simply Visible
                 <ArrowRight size={16} />
               </Link>
+              <Link href="/simply-visible/preview" className="btn-ghost">
+                Read a free preview
+              </Link>
             </div>
           </div>
         </div>

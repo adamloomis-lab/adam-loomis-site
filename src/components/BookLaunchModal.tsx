@@ -133,11 +133,11 @@ export default function BookLaunchModal() {
                 <ArrowRight size={16} />
               </a>
               <Link
-                href="/simply-visible"
+                href="/simply-visible/preview"
                 onClick={close}
                 className="btn-ghost"
               >
-                Read more
+                Read a free preview
               </Link>
             </div>
 

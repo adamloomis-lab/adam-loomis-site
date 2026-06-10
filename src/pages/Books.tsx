@@ -201,12 +201,20 @@ export default function Books() {
                   <ArrowRight size={16} />
                 </a>
               </div>
-              <Link
-                href="/simply-visible"
-                className="eyebrow-muted hover:text-[#0A0A0A] transition-colors inline-flex items-center gap-2"
-              >
-                More about the Simply Visible project &rarr;
-              </Link>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                <Link
+                  href="/simply-visible/preview"
+                  className="text-[#0A0A0A] text-[14px] font-medium underline decoration-[#FFC500] decoration-2 underline-offset-4 hover:decoration-[#0A0A0A] transition-colors"
+                >
+                  Read a free preview &rarr;
+                </Link>
+                <Link
+                  href="/simply-visible"
+                  className="eyebrow-muted hover:text-[#0A0A0A] transition-colors"
+                >
+                  More about the project &rarr;
+                </Link>
+              </div>
             </div>
           </div>
         </div>
