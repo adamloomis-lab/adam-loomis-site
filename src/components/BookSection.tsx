@@ -35,7 +35,7 @@ export default function BookSection() {
             <span className="h-px flex-1 bg-white/15" />
             <span className="eyebrow-muted text-white/50">First Book</span>
           </div>
-          <h2 className="display-serif text-4xl sm:text-5xl lg:text-6xl text-white max-w-3xl">
+          <h2 className="display-serif display-section text-white max-w-3xl">
             <span className="italic font-light text-white/60">Conversational</span> Marketing.
           </h2>
         </div>

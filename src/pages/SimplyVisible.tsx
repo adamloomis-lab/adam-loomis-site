@@ -128,7 +128,7 @@ export default function SimplyVisible() {
             </div>
 
             <div className="lg:col-span-7 order-1 lg:order-2">
-              <h1 className="display-serif text-[2.5rem] sm:text-5xl lg:text-[4.5rem] text-[#0A0A0A] mb-6">
+              <h1 className="display-serif display-hero text-[#0A0A0A] mb-6">
                 Your customers <span className="italic font-light text-[#6E6E6E]">are searching.</span>
                 <br />
                 Are they finding you?
@@ -192,7 +192,7 @@ export default function SimplyVisible() {
               <span className="eyebrow">Inside the Book</span>
               <span className="h-px flex-1 bg-[#E5E5E5]" />
             </div>
-            <h2 className="display-serif text-4xl sm:text-5xl lg:text-6xl text-[#0A0A0A]">
+            <h2 className="display-serif display-section text-[#0A0A0A]">
               What you will <span className="italic font-light text-[#6E6E6E]">walk away with.</span>
             </h2>
           </div>
@@ -297,7 +297,7 @@ export default function SimplyVisible() {
               <span className="eyebrow-muted">simplyvisible.online</span>
             </div>
 
-            <h2 className="display-serif text-4xl sm:text-5xl lg:text-6xl text-[#0A0A0A] mb-8 leading-[1.05] max-w-4xl">
+            <h2 className="display-serif display-section text-[#0A0A0A] mb-8 leading-[1.05] max-w-4xl">
               The methodology <span className="italic font-light text-[#6E6E6E]">behind the book.</span>
             </h2>
 
@@ -406,7 +406,7 @@ export default function SimplyVisible() {
             }}
           >
             <p className="eyebrow mb-8">Get the Book</p>
-            <h2 className="display-serif text-4xl sm:text-5xl lg:text-6xl text-[#0A0A0A] mb-6 leading-[1.05]">
+            <h2 className="display-serif display-section text-[#0A0A0A] mb-6 leading-[1.05]">
               Stop being invisible. <span className="italic font-light text-[#6E6E6E]">Start being chosen.</span>
             </h2>
             <p className="text-[#0A0A0A]/80 text-lg leading-relaxed mb-10">

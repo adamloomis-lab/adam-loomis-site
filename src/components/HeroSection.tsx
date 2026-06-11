@@ -4,6 +4,7 @@
  */
 import { ASSETS } from "@/lib/constants";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { Parallax } from "@/components/motion";
 import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
@@ -32,7 +33,7 @@ export default function HeroSection() {
           {/* Headline — left, 7 columns */}
           <div className="lg:col-span-7">
             <h1
-              className="display-serif text-[2.75rem] sm:text-6xl lg:text-7xl xl:text-[5.5rem] text-[#0A0A0A] mb-8"
+              className="display-serif display-hero text-[#0A0A0A] mb-8"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? "translateY(0)" : "translateY(24px)",
@@ -87,13 +88,15 @@ export default function HeroSection() {
               transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 350ms",
             }}
           >
-            <div className="relative">
-              <img
-                src={ASSETS.speaking1}
-                alt="Adam Loomis speaking on stage"
-                className="w-full h-[480px] lg:h-[600px] object-cover rounded-lg"
-              />
-              <div className="absolute -bottom-4 -left-4 bg-[#FFC500] px-4 py-2">
+            <div className="relative overflow-hidden rounded-lg h-[480px] lg:h-[600px]">
+              <Parallax distance={36} className="absolute inset-0">
+                <img
+                  src={ASSETS.speaking1}
+                  alt="Adam Loomis speaking on stage"
+                  className="w-full h-[540px] lg:h-[680px] object-cover scale-[1.08]"
+                />
+              </Parallax>
+              <div className="absolute bottom-4 left-0 bg-[#FFC500] px-4 py-2">
                 <span className="eyebrow text-[#0A0A0A]">On Stage</span>
               </div>
             </div>

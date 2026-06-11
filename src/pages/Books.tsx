@@ -14,6 +14,7 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { ASSETS, ENDORSEMENTS } from "@/lib/constants";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { TiltCard } from "@/components/motion";
 import { ArrowRight, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const AMAZON_SV_PAPERBACK = "https://www.amazon.com/dp/B0H4Q9PPPW";
@@ -101,7 +102,7 @@ export default function Books() {
 
             {/* Headline + intro */}
             <div className="lg:col-span-6 order-1 lg:order-2">
-              <h1 className="display-serif text-[2.75rem] sm:text-6xl lg:text-7xl text-[#0A0A0A] mb-8">
+              <h1 className="display-serif display-hero text-[#0A0A0A] mb-8">
                 Two books. <span className="italic font-light text-[#6E6E6E]">One playbook.</span>
               </h1>
               <p className="text-[#0A0A0A]/85 text-xl leading-relaxed mb-6 max-w-xl">
@@ -144,7 +145,7 @@ export default function Books() {
                 transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 100ms",
               }}
             >
-              <div className="relative max-w-md mx-auto lg:mx-0">
+              <TiltCard className="relative max-w-md mx-auto lg:mx-0">
                 <img
                   src={ASSETS.simplyVisibleCover}
                   alt="Simply Visible: How Local Businesses Get Found, Trusted, and Chosen in the AI Era by Adam Loomis"
@@ -154,7 +155,7 @@ export default function Books() {
                       "0 30px 60px -20px rgba(0,0,0,0.2), 0 12px 24px -12px rgba(0,0,0,0.12)",
                   }}
                 />
-              </div>
+              </TiltCard>
             </div>
 
             <div
@@ -406,7 +407,7 @@ export default function Books() {
                 transition: "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 100ms",
               }}
             >
-              <div className="relative max-w-md mx-auto lg:mx-0">
+              <TiltCard className="relative max-w-md mx-auto lg:mx-0">
                 <img
                   src={ASSETS.bookPhoto}
                   alt="Conversational Marketing by Adam Loomis - Book Cover"
@@ -416,7 +417,7 @@ export default function Books() {
                       "0 30px 60px -20px rgba(0,0,0,0.2), 0 12px 24px -12px rgba(0,0,0,0.12)",
                   }}
                 />
-              </div>
+              </TiltCard>
             </div>
           </div>
         </div>
@@ -437,7 +438,7 @@ export default function Books() {
             }}
           >
             <p className="eyebrow mb-8">Get Both Books</p>
-            <h2 className="display-serif text-4xl sm:text-5xl lg:text-6xl text-[#0A0A0A] mb-6 leading-[1.05]">
+            <h2 className="display-serif display-section text-[#0A0A0A] mb-6 leading-[1.05]">
               Be seen. <span className="italic font-light text-[#6E6E6E]">Be heard.</span>
             </h2>
             <p className="text-[#0A0A0A]/80 text-lg leading-relaxed mb-10">

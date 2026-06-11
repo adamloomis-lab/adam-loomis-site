@@ -487,7 +487,7 @@ export default function SimplyVisiblePreview() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <p className="eyebrow text-white mb-8">End of Preview</p>
-            <h2 className="display-serif text-4xl sm:text-5xl lg:text-6xl text-white mb-6 leading-[1.05]">
+            <h2 className="display-serif display-section text-white mb-6 leading-[1.05]">
               Want the rest? <span className="italic font-light text-white/55">Thirteen more chapters.</span>
             </h2>
             <p className="text-white/80 text-lg leading-relaxed mb-10">

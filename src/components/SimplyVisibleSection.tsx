@@ -6,6 +6,7 @@
 import { Link } from "wouter";
 import { ASSETS } from "@/lib/constants";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { TiltCard } from "@/components/motion";
 import { ArrowRight } from "lucide-react";
 
 export default function SimplyVisibleSection() {
@@ -36,17 +37,17 @@ export default function SimplyVisibleSection() {
               aria-label="Explore Simply Visible"
               className="block"
             >
-              <div className="relative max-w-md mx-auto lg:mx-0">
+              <TiltCard className="relative max-w-md mx-auto lg:mx-0">
                 <img
                   src={ASSETS.simplyVisibleCover}
                   alt="Simply Visible: How Local Businesses Get Found, Trusted, and Chosen in the AI Era by Adam Loomis - Book Cover"
-                  className="relative w-full rounded-md transition-transform duration-300 hover:-translate-y-1"
+                  className="relative w-full rounded-md"
                   style={{
                     boxShadow:
                       "0 30px 60px -20px rgba(0,0,0,0.18), 0 12px 24px -12px rgba(0,0,0,0.12)",
                   }}
                 />
-              </div>
+              </TiltCard>
             </Link>
           </div>
 

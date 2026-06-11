@@ -32,7 +32,7 @@ export default function ExpertiseSection() {
             <span className="eyebrow">Areas of Expertise</span>
             <span className="h-px flex-1 bg-[#E5E5E5]" />
           </div>
-          <h2 className="display-serif text-4xl sm:text-5xl lg:text-6xl text-[#0A0A0A]">
+          <h2 className="display-serif display-section text-[#0A0A0A]">
             What Adam teaches.
           </h2>
         </div>

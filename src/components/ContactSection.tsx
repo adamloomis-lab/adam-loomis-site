@@ -64,7 +64,7 @@ export default function ContactSection() {
               <span className="eyebrow">Get In Touch</span>
               <span className="h-px flex-1 bg-[#E5E5E5]" />
             </div>
-            <h2 className="display-serif text-4xl sm:text-5xl lg:text-6xl text-[#0A0A0A] mb-6 leading-[1.05]">
+            <h2 className="display-serif display-section text-[#0A0A0A] mb-6 leading-[1.05]">
               Let&apos;s build something <span className="italic font-light text-[#6E6E6E]">meaningful.</span>
             </h2>
             <p className="text-[#0A0A0A]/70 text-lg max-w-2xl">

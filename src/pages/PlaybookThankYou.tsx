@@ -78,7 +78,7 @@ export default function PlaybookThankYou() {
               <span className="h-px flex-1 bg-[#E5E5E5]" />
             </div>
 
-            <h1 className="display-serif text-4xl sm:text-5xl lg:text-6xl text-[#0A0A0A] mb-6 leading-[1.05]">
+            <h1 className="display-serif display-section text-[#0A0A0A] mb-6 leading-[1.05]">
               {firstName ? (
                 <>
                   Thanks, {firstName}. <span className="italic font-light text-[#6E6E6E]">You&rsquo;re in.</span>

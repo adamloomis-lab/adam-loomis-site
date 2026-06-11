@@ -22,7 +22,7 @@ const COMPANIES: Company[] = [
     name: "Adam Loomis Marketing",
     href: "https://www.adamloomismarketing.com/",
     description: "Strategic marketing systems for companies ready to scale.",
-    logo: "/images/companies/alm.png",
+    logo: "/images/companies/alm.webp",
     kind: "logo",
     logoClass: "h-24 lg:h-28",
   },
@@ -38,7 +38,7 @@ const COMPANIES: Company[] = [
     name: "GardenReady",
     href: "https://gardenready.co/",
     description: "Professional greenhouse installation and partnership network.",
-    logo: "/images/companies/gardenready.png",
+    logo: "/images/companies/gardenready.webp",
     kind: "logo",
     logoClass: "h-14 lg:h-16",
   },
@@ -46,7 +46,7 @@ const COMPANIES: Company[] = [
     name: "YardReady",
     href: "https://yardready.co/",
     description: "On-demand lawn, leaf, and snow care across Northeast Ohio.",
-    logo: "/images/companies/yardready.png",
+    logo: "/images/companies/yardready.webp",
     kind: "logo",
     logoClass: "h-14 lg:h-16",
   },
@@ -54,7 +54,7 @@ const COMPANIES: Company[] = [
     name: "Benchmark Flooring",
     href: "https://benchfloor-xmb7rrxy.manus.space/",
     description: "Northeast Ohio's standard for flooring installation.",
-    logo: "/images/companies/benchmark.png",
+    logo: "/images/companies/benchmark.webp",
     kind: "logo",
     logoClass: "h-16 lg:h-20",
   },
@@ -80,7 +80,7 @@ export default function HisCompaniesSection() {
             <span className="h-px flex-1 bg-[#E5E5E5]" />
             <span className="eyebrow-muted">Portfolio</span>
           </div>
-          <h2 className="display-serif text-4xl sm:text-5xl lg:text-6xl text-[#0A0A0A] mb-6">
+          <h2 className="display-serif display-section text-[#0A0A0A] mb-6">
             The ventures <span className="italic font-light text-[#6E6E6E]">Adam has built.</span>
           </h2>
           <p className="text-[#0A0A0A]/75 text-lg leading-relaxed max-w-2xl">

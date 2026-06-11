@@ -1,5 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+/* Self-hosted variable fonts: Fraunces (wght + opsz axes), Lexend (wght) */
+@import "@fontsource-variable/fraunces/opsz.css";
+@import "@fontsource-variable/lexend";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -39,9 +42,9 @@
   --color-accent-yellow-hover: #FFD633;
   --color-accent-blue: #64D5FF;
 
-  --font-heading: "Fraunces", "Source Serif 4", Georgia, serif;
-  --font-body: "Lexend", system-ui, -apple-system, sans-serif;
-  --font-eyebrow: "Lexend", system-ui, sans-serif;
+  --font-heading: "Fraunces Variable", "Fraunces", Georgia, serif;
+  --font-body: "Lexend Variable", "Lexend", system-ui, -apple-system, sans-serif;
+  --font-eyebrow: "Lexend Variable", "Lexend", system-ui, sans-serif;
 }
 
 :root {
@@ -79,14 +82,28 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  p {
+    text-wrap: pretty;
+  }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-weight: 500;
     letter-spacing: -0.02em;
     color: #0A0A0A;
+    font-optical-sizing: auto;
+    text-wrap: balance;
   }
   h1, h2 {
     letter-spacing: -0.03em;
+  }
+  /* Respect users who prefer reduced motion: collapse our transitions/animations */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+    }
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -145,12 +162,37 @@
     color: #6E6E6E;
   }
 
-  /* Editorial display headline tightening */
+  /* Editorial display headline tightening — fluid, optically sized */
   .display-serif {
     font-family: var(--font-heading);
     font-weight: 500;
     letter-spacing: -0.035em;
     line-height: 1.02;
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 144;
+    text-wrap: balance;
+  }
+
+  /* Fluid display sizes — continuous scaling instead of breakpoint jumps */
+  .display-hero {
+    font-size: clamp(2.75rem, 1.2rem + 6.5vw, 5.5rem);
+  }
+  .display-section {
+    font-size: clamp(2.25rem, 1.4rem + 3.6vw, 3.75rem);
+  }
+
+  /* Editorial photo treatment: grayscale at rest, color on hover */
+  .photo-editorial {
+    filter: grayscale(0.85);
+    transition: filter 600ms ease;
+  }
+  .photo-editorial:hover {
+    filter: grayscale(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .photo-editorial {
+      filter: none;
+    }
   }
 
   /* Hairline divider */

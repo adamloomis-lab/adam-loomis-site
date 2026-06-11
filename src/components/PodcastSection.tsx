@@ -25,7 +25,7 @@ export default function PodcastSection() {
             <span className="h-px flex-1 bg-[#E5E5E5]" />
             <span className="eyebrow-muted">Weekly &middot; Mondays</span>
           </div>
-          <h2 className="display-serif text-4xl sm:text-5xl lg:text-6xl text-[#0A0A0A] mb-6">
+          <h2 className="display-serif display-section text-[#0A0A0A] mb-6">
             Mondays with Adam.
           </h2>
           <p className="text-[#0A0A0A]/75 text-lg leading-relaxed">

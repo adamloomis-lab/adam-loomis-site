@@ -45,7 +45,7 @@ export default function SpeakingSection() {
                   key={i}
                   src={src}
                   alt={`Adam Loomis speaking at an event ${i + 1}`}
-                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
+                  className="photo-editorial absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
                   style={{ opacity: activeImage === i ? 1 : 0 }}
                 />
               ))}
