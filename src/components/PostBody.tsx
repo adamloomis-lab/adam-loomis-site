@@ -1,5 +1,5 @@
 /*
- * PostBody — renders Field Notes post blocks in the editorial reader style.
+ * PostBody — renders My Thoughts post blocks in the editorial reader style.
  * Serif body, drop cap on the opening paragraph, section headings, lead close.
  */
 import type { Block } from "@/lib/thoughts";

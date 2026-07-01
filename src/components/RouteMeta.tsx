@@ -12,7 +12,7 @@ const TITLES: Record<string, string> = {
   "/books": "Books by Adam Loomis — Simply Visible & Conversational Marketing",
   "/simply-visible": "Simply Visible — Book, Podcast & System | Adam Loomis",
   "/simply-visible/preview": "Read a Free Preview — Simply Visible | Adam Loomis",
-  "/field-notes": "Field Notes — Thoughts by Adam Loomis",
+  "/my-thoughts": "My Thoughts — Adam Loomis",
   "/privacy": "Privacy Policy | Adam Loomis",
   "/terms": "Terms of Service | Adam Loomis",
   "/accessibility": "Accessibility | Adam Loomis",
@@ -23,12 +23,12 @@ export default function RouteMeta() {
   const [location] = useLocation();
 
   useEffect(() => {
-    if (location.startsWith("/field-notes/")) {
-      const slug = location.slice("/field-notes/".length);
+    if (location.startsWith("/my-thoughts/")) {
+      const slug = location.slice("/my-thoughts/".length);
       const post = getPost(slug);
       document.title = post
-        ? `${post.title} — Field Notes | Adam Loomis`
-        : "Field Notes — Adam Loomis";
+        ? `${post.title} — My Thoughts | Adam Loomis`
+        : "My Thoughts — Adam Loomis";
       return;
     }
     document.title = TITLES[location] ?? "Adam Loomis";

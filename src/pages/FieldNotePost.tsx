@@ -33,7 +33,7 @@ function ReadingProgress() {
 }
 
 export default function FieldNotePost() {
-  const [, params] = useRoute("/field-notes/:slug");
+  const [, params] = useRoute("/my-thoughts/:slug");
   const post = params ? getPost(params.slug) : undefined;
 
   if (!post) return <NotFound />;
@@ -57,11 +57,11 @@ export default function FieldNotePost() {
             <img src={ASSETS.logo} alt="Adam Loomis" className="h-7 w-auto" />
           </Link>
           <Link
-            href="/field-notes"
+            href="/my-thoughts"
             className="flex items-center gap-2 eyebrow-muted hover:text-[#0A0A0A] transition-colors"
           >
             <ArrowLeft size={14} />
-            Field Notes
+            My Thoughts
           </Link>
         </div>
       </header>
@@ -113,14 +113,14 @@ export default function FieldNotePost() {
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="flex items-center gap-4 mb-10">
-                <span className="eyebrow">More Field Notes</span>
+                <span className="eyebrow">More My Thoughts</span>
                 <span className="h-px flex-1 bg-[#E5E5E5]" />
               </div>
               <div className="grid sm:grid-cols-2 gap-4">
                 {others.map((p) => (
                   <Link
                     key={p.slug}
-                    href={`/field-notes/${p.slug}`}
+                    href={`/my-thoughts/${p.slug}`}
                     className="group block p-6 bg-white border border-[#E5E5E5] rounded-md hover:border-[#0A0A0A] transition-colors"
                   >
                     <p className="eyebrow-muted mb-3">
@@ -144,10 +144,10 @@ export default function FieldNotePost() {
       <section className="py-16 border-t border-[#E5E5E5]">
         <div className="container text-center">
           <Link
-            href="/field-notes"
+            href="/my-thoughts"
             className="inline-flex items-center gap-2 btn-ghost"
           >
-            All Field Notes
+            All My Thoughts
             <ArrowRight size={16} />
           </Link>
         </div>

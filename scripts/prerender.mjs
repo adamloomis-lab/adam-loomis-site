@@ -168,7 +168,7 @@ const ROUTES = [
   },
 ];
 
-// ── Field Notes: parse post metadata from src/lib/thoughts.ts so new posts
+// ── My Thoughts: parse post metadata from src/lib/thoughts.ts so new posts
 //    auto-prerender. Relies on the consistent authoring format in that file
 //    (each POSTS entry lists slug/title/subtitle/category/date/isoDate/
 //    readingTime/excerpt as plain double-quoted strings, in that order).
@@ -204,25 +204,25 @@ function parsePosts() {
 
 const POSTS = parsePosts();
 
-// Field Notes index
+// My Thoughts index
 ROUTES.push({
-  path: "/field-notes",
-  title: "Field Notes — Thoughts by Adam Loomis",
+  path: "/my-thoughts",
+  title: "My Thoughts — Adam Loomis",
   description:
-    "Field Notes by Adam Loomis. Notes on marketing, faith, and building a life worth living. Honest words meant to encourage you.",
+    "My Thoughts by Adam Loomis. Notes on marketing, faith, and building a life worth living. Honest words meant to encourage you.",
   image: PORTRAIT,
   schema: [
     PERSON,
     {
       "@type": "Blog",
-      "@id": `${SITE}/field-notes#blog`,
-      name: "Field Notes",
-      url: `${SITE}/field-notes`,
+      "@id": `${SITE}/my-thoughts#blog`,
+      name: "My Thoughts",
+      url: `${SITE}/my-thoughts`,
       author: { "@id": `${SITE}/#adam` },
       blogPost: POSTS.map((p) => ({
         "@type": "BlogPosting",
         headline: p.title,
-        url: `${SITE}/field-notes/${p.slug}`,
+        url: `${SITE}/my-thoughts/${p.slug}`,
         datePublished: p.isoDate,
       })),
     },
@@ -232,25 +232,25 @@ ROUTES.push({
 // One route per post
 for (const p of POSTS) {
   ROUTES.push({
-    path: `/field-notes/${p.slug}`,
-    title: `${p.title} — Field Notes | Adam Loomis`,
+    path: `/my-thoughts/${p.slug}`,
+    title: `${p.title} — My Thoughts | Adam Loomis`,
     description: p.excerpt,
     image: PORTRAIT,
     schema: [
       PERSON,
       {
         "@type": "BlogPosting",
-        "@id": `${SITE}/field-notes/${p.slug}#post`,
+        "@id": `${SITE}/my-thoughts/${p.slug}#post`,
         headline: p.title,
         description: p.subtitle,
         articleSection: p.category,
         datePublished: p.isoDate,
         dateModified: p.isoDate,
-        url: `${SITE}/field-notes/${p.slug}`,
+        url: `${SITE}/my-thoughts/${p.slug}`,
         image: PORTRAIT,
         author: { "@id": `${SITE}/#adam` },
         publisher: { "@id": `${SITE}/#adam` },
-        mainEntityOfPage: `${SITE}/field-notes/${p.slug}`,
+        mainEntityOfPage: `${SITE}/my-thoughts/${p.slug}`,
       },
     ],
   });

@@ -1,5 +1,5 @@
 /*
- * Field Notes — index of Adam's writing.
+ * My Thoughts — index of Adam's writing.
  * Design: "Editorial Authority" — magazine contents list, hairline rows.
  */
 import { Link } from "wouter";
@@ -22,7 +22,7 @@ export default function FieldNotes() {
             />
             <img src={ASSETS.logo} alt="Adam Loomis" className="h-7 w-auto" />
           </Link>
-          <span className="eyebrow-muted">Field Notes</span>
+          <span className="eyebrow-muted">My Thoughts</span>
         </div>
       </header>
 
@@ -31,7 +31,7 @@ export default function FieldNotes() {
         <div className="container">
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-8">
-              <span className="eyebrow">Field Notes</span>
+              <span className="eyebrow">My Thoughts</span>
               <span className="h-px flex-1 bg-[#E5E5E5]" />
             </div>
             <h1 className="display-serif display-hero text-[#0A0A0A] mb-6">
@@ -58,7 +58,7 @@ export default function FieldNotes() {
               {POSTS.map((post, i) => (
                 <Link
                   key={post.slug}
-                  href={`/field-notes/${post.slug}`}
+                  href={`/my-thoughts/${post.slug}`}
                   className="group block py-10 border-b border-[#E5E5E5] transition-colors hover:bg-[#FAFAFA]"
                 >
                   <div className="grid lg:grid-cols-12 gap-6 lg:gap-10 items-baseline">

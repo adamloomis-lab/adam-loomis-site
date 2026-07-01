@@ -39,8 +39,8 @@ function Router() {
           <Route path="/simply-visible/preview" component={SimplyVisiblePreview} />
           <Route path="/simply-visible" component={SimplyVisible} />
           <Route path="/books" component={Books} />
-          <Route path="/field-notes/:slug" component={FieldNotePost} />
-          <Route path="/field-notes" component={FieldNotes} />
+          <Route path="/my-thoughts/:slug" component={FieldNotePost} />
+          <Route path="/my-thoughts" component={FieldNotes} />
           <Route path="/privacy" component={Privacy} />
           <Route path="/terms" component={Terms} />
           <Route path="/accessibility" component={Accessibility} />

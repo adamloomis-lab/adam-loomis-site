@@ -1,1 +1,6 @@
+# Renamed: Field Notes -> My Thoughts
+/field-notes/*   /my-thoughts/:splat   301
+/field-notes     /my-thoughts          301
+
+# SPA fallback
 /*    /index.html   200

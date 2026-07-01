@@ -1,5 +1,5 @@
 /*
- * Field Notes — Adam's writing.
+ * My Thoughts — Adam's writing.
  * Blog-format posts (we just don't call it a blog).
  * Add a new entry to POSTS to publish; register its route in scripts/prerender.mjs
  * and src/components/RouteMeta.tsx so it prerenders with its own head + schema.

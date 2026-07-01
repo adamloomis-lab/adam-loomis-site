@@ -8,6 +8,19 @@
 [build.processing]
   skip_processing = false
 
+# Renamed: Field Notes -> My Thoughts (evaluated before the SPA catch-all)
+[[redirects]]
+  from = "/field-notes/*"
+  to = "/my-thoughts/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/field-notes"
+  to = "/my-thoughts"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
