@@ -7,6 +7,7 @@ import { Link, useRoute } from "wouter";
 import { ASSETS } from "@/lib/constants";
 import { getPost, POSTS } from "@/lib/thoughts";
 import PostBody from "@/components/PostBody";
+import ShareButtons from "@/components/ShareButtons";
 import NotFound from "@/pages/NotFound";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -81,18 +82,21 @@ export default function FieldNotePost() {
             <p className="font-heading italic text-xl lg:text-2xl text-[#6E6E6E] leading-snug">
               {post.subtitle}
             </p>
-            <div className="mt-8 flex items-center gap-3">
-              <img
-                src={ASSETS.aboutSelfie}
-                alt="Adam Loomis"
-                className="w-10 h-10 rounded-full object-cover"
-              />
-              <div>
-                <p className="text-[14px] font-semibold text-[#0A0A0A] leading-none mb-1">
-                  Adam Loomis
-                </p>
-                <p className="eyebrow-muted">Writer</p>
+            <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+              <div className="flex items-center gap-3">
+                <img
+                  src={ASSETS.aboutSelfie}
+                  alt="Adam Loomis"
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+                <div>
+                  <p className="text-[14px] font-semibold text-[#0A0A0A] leading-none mb-1">
+                    Adam Loomis
+                  </p>
+                  <p className="eyebrow-muted">Writer</p>
+                </div>
               </div>
+              <ShareButtons path={`/my-thoughts/${post.slug}`} title={post.title} />
             </div>
           </div>
         </div>
@@ -103,6 +107,14 @@ export default function FieldNotePost() {
         <div className="container">
           <article className="max-w-[680px] mx-auto">
             <PostBody blocks={post.blocks} />
+
+            {/* End-of-article share */}
+            <div className="mt-16 pt-8 border-t border-[#E5E5E5] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+              <p className="font-heading text-lg text-[#0A0A0A]">
+                If this encouraged you, pass it on.
+              </p>
+              <ShareButtons path={`/my-thoughts/${post.slug}`} title={post.title} />
+            </div>
           </article>
         </div>
       </main>
