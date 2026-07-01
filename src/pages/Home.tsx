@@ -11,6 +11,7 @@ import SpeakingSection from "@/components/SpeakingSection";
 import PodcastSection from "@/components/PodcastSection";
 import BookSection from "@/components/BookSection";
 import AboutSection from "@/components/AboutSection";
+import MyThoughtsSection from "@/components/MyThoughtsSection";
 import CompanySection from "@/components/CompanySection";
 import HisCompaniesSection from "@/components/HisCompaniesSection";
 import SimplyVisibleSection from "@/components/SimplyVisibleSection";
@@ -31,6 +32,7 @@ export default function Home() {
       <PodcastSection />
       <BookSection />
       <AboutSection />
+      <MyThoughtsSection />
       <CompanySection />
       <HisCompaniesSection />
       <StrategySection />
