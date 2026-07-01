@@ -168,6 +168,94 @@ const ROUTES = [
   },
 ];
 
+// ── Field Notes: parse post metadata from src/lib/thoughts.ts so new posts
+//    auto-prerender. Relies on the consistent authoring format in that file
+//    (each POSTS entry lists slug/title/subtitle/category/date/isoDate/
+//    readingTime/excerpt as plain double-quoted strings, in that order).
+function parsePosts() {
+  const src = fs.readFileSync(
+    path.resolve(import.meta.dirname, "../src/lib/thoughts.ts"),
+    "utf-8"
+  );
+  const grab = (field) => {
+    const re = new RegExp(`\\b${field}:\\s*"([^"]*)"`, "g");
+    const out = [];
+    let m;
+    while ((m = re.exec(src))) out.push(m[1]);
+    return out;
+  };
+  const slugs = grab("slug");
+  const titles = grab("title");
+  const subtitles = grab("subtitle");
+  const categories = grab("category");
+  const dates = grab("date");
+  const isoDates = grab("isoDate");
+  const excerpts = grab("excerpt");
+  return slugs.map((slug, i) => ({
+    slug,
+    title: titles[i],
+    subtitle: subtitles[i],
+    category: categories[i],
+    date: dates[i],
+    isoDate: isoDates[i],
+    excerpt: excerpts[i],
+  }));
+}
+
+const POSTS = parsePosts();
+
+// Field Notes index
+ROUTES.push({
+  path: "/field-notes",
+  title: "Field Notes — Thoughts by Adam Loomis",
+  description:
+    "Field Notes by Adam Loomis. Notes on marketing, faith, and building a life worth living. Honest words meant to encourage you.",
+  image: PORTRAIT,
+  schema: [
+    PERSON,
+    {
+      "@type": "Blog",
+      "@id": `${SITE}/field-notes#blog`,
+      name: "Field Notes",
+      url: `${SITE}/field-notes`,
+      author: { "@id": `${SITE}/#adam` },
+      blogPost: POSTS.map((p) => ({
+        "@type": "BlogPosting",
+        headline: p.title,
+        url: `${SITE}/field-notes/${p.slug}`,
+        datePublished: p.isoDate,
+      })),
+    },
+  ],
+});
+
+// One route per post
+for (const p of POSTS) {
+  ROUTES.push({
+    path: `/field-notes/${p.slug}`,
+    title: `${p.title} — Field Notes | Adam Loomis`,
+    description: p.excerpt,
+    image: PORTRAIT,
+    schema: [
+      PERSON,
+      {
+        "@type": "BlogPosting",
+        "@id": `${SITE}/field-notes/${p.slug}#post`,
+        headline: p.title,
+        description: p.subtitle,
+        articleSection: p.category,
+        datePublished: p.isoDate,
+        dateModified: p.isoDate,
+        url: `${SITE}/field-notes/${p.slug}`,
+        image: PORTRAIT,
+        author: { "@id": `${SITE}/#adam` },
+        publisher: { "@id": `${SITE}/#adam` },
+        mainEntityOfPage: `${SITE}/field-notes/${p.slug}`,
+      },
+    ],
+  });
+}
+
 function headFor(route) {
   const url = `${SITE}${route.path === "/" ? "" : route.path}`;
   const jsonLd = JSON.stringify(

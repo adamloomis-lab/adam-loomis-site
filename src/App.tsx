@@ -12,6 +12,8 @@ import RouteMeta from "./components/RouteMeta";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Accessibility from "./pages/Accessibility";
 import Books from "./pages/Books";
+import FieldNotePost from "./pages/FieldNotePost";
+import FieldNotes from "./pages/FieldNotes";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import PlaybookThankYou from "./pages/PlaybookThankYou";
@@ -37,6 +39,8 @@ function Router() {
           <Route path="/simply-visible/preview" component={SimplyVisiblePreview} />
           <Route path="/simply-visible" component={SimplyVisible} />
           <Route path="/books" component={Books} />
+          <Route path="/field-notes/:slug" component={FieldNotePost} />
+          <Route path="/field-notes" component={FieldNotes} />
           <Route path="/privacy" component={Privacy} />
           <Route path="/terms" component={Terms} />
           <Route path="/accessibility" component={Accessibility} />
