@@ -14,6 +14,7 @@ import AboutSection from "@/components/AboutSection";
 import MyThoughtsSection from "@/components/MyThoughtsSection";
 import CompanySection from "@/components/CompanySection";
 import HisCompaniesSection from "@/components/HisCompaniesSection";
+import MerchSection from "@/components/MerchSection";
 import SimplyVisibleSection from "@/components/SimplyVisibleSection";
 import StrategySection from "@/components/StrategySection";
 import LeadMagnetSection from "@/components/LeadMagnetSection";
@@ -27,6 +28,7 @@ export default function Home() {
       <HeroSection />
       <StatsSection />
       <SimplyVisibleSection />
+      <MerchSection />
       <ExpertiseSection />
       <SpeakingSection />
       <PodcastSection />
