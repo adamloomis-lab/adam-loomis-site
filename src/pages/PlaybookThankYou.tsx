@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 const PLAYBOOK_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663307809653/iSGdkRyQsxV59hys4MR3Ky/organic_marketing_playbook_854a3b46.pdf";
+  "/files/organic-marketing-playbook.pdf";
 
 export default function PlaybookThankYou() {
   const [showContent, setShowContent] = useState(false);

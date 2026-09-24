@@ -13,7 +13,7 @@ const DIST = path.resolve(import.meta.dirname, "../dist");
 
 const BOOK_COVER = `${SITE}/images/book/simply-visible-cover.jpg`;
 const PORTRAIT =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663307809653/iSGdkRyQsxV59hys4MR3Ky/about-selfie_f0d8c856.jpg";
+  "https://adamloomis.online/images/about-selfie.jpg";
 
 const PERSON = {
   "@type": "Person",

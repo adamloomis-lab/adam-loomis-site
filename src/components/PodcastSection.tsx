@@ -48,11 +48,6 @@ export default function PodcastSection() {
             }}
           >
             <div className="bg-[#64D5FF]/15 border border-[#E5E5E5] rounded-md p-6">
-              <img
-                src={ASSETS.podcastImg}
-                alt="Mondays with Adam Podcast cover art"
-                className="w-full rounded-sm mb-5"
-              />
               <p className="eyebrow-muted mb-2">Tile</p>
               <h3 className="font-heading text-xl text-[#0A0A0A] leading-snug">
                 Mondays with Adam &mdash; the weekly show

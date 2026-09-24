@@ -11,7 +11,7 @@ export default function SpeakingSection() {
   const { ref, isVisible } = useScrollAnimation(0.1);
   const [activeImage, setActiveImage] = useState(0);
 
-  const speakingImages = [ASSETS.speaking1, ASSETS.speaking2];
+  const speakingImages = [ASSETS.speaking1];
 
   useEffect(() => {
     if (!isVisible) return;

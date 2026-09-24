@@ -92,12 +92,12 @@ export default function HeroSection() {
               <Parallax distance={36} className="absolute inset-0">
                 <img
                   src={ASSETS.speaking1}
-                  alt="Adam Loomis speaking on stage"
+                  alt="Adam Loomis"
                   className="w-full h-[540px] lg:h-[680px] object-cover scale-[1.08]"
                 />
               </Parallax>
               <div className="absolute bottom-4 left-0 bg-[#FFC500] px-4 py-2">
-                <span className="eyebrow text-[#0A0A0A]">On Stage</span>
+                <span className="eyebrow text-[#0A0A0A]">Speaker</span>
               </div>
             </div>
           </div>
